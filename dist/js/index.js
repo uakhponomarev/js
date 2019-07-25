@@ -107,12 +107,9 @@ function testFunc() {
 /*!*************************!*\
   !*** ./src/js/index.js ***!
   \*************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var functions_testFunc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! functions/testFunc */ "./src/js/functions/testFunc.js");
 // function goUp(str) {
 //     return str.charAt(0).toUpperCase()+str.slice(1);
 // }
@@ -2060,7 +2057,94 @@ __webpack_require__.r(__webpack_exports__);
 // }
 // var container = document.getElementById('container');
 // createTree(container, data);
+// let el = document.createElement('div');
+// el.textContent = '<span>div3</span>';
+// let td = document.querySelectorAll('td');
+// for (let i = 0; i < td.length; i++) {
+//     td[i].style.padding = '10px';
+// }
+// let div4 = document.createElement('div');
+//         div4.textContent = '<b>DIV4</b>';
+//         div4.id = 'dv4';
+//         // console.log(div4);
+//         dv3.insertAdjacentElement('afterEnd', div4);
+//         dv3.insertAdjacentHTML('afterBegin', '<i>Some Text   </i>  ');
+//         container.prepend(div4);
+//         console.log(dv1.replaceWith(dv4));
+//         document.getElementsByTagName('ul')[0].insertAdjacentHTML('beforeEnd', '<li>3</li><li>4</li><li>5</li>');
+/* <table>
+<tr>
+    <th>Name</th>
+    <th>LastName</th>
+    <th>PastName</th>
+    <th>Age</th>
+</tr>
+<tr>
+    <td>I34van</td>
+    <td>I34vanov</td>
+    <td>I34vanivi4</td>
+    <td>34</td>
+</tr>
+<tr>
+    <td>I12van</td>
+    <td>I12vanov</td>
+    <td>I12vanivi4</td>
+    <td>12</td>
+</tr>
+<tr>
+    <td>I25van</td>
+    <td>I25vanov</td>
+    <td>I25vanivi4</td>
+    <td>25</td>
+</tr>
+<tr>
+    <td>I4van</td>
+    <td>I4vanov</td>
+    <td>I4vanivi4</td>
+    <td>4</td>
+</tr>
+<tr>
+    <td>I56van</td>
+    <td>I56vanov</td>
+    <td>I56vanivi4</td>
+    <td>56</td>
+</tr>
+<tr>
+    <td>I43van</td>
+    <td>I43vanov</td>
+    <td>I43vanivi4</td>
+    <td>43</td>
+</tr>
+<tr>
+    <td>I77van</td>
+    <td>I77vanov</td>
+    <td>I77vanivi4</td>
+    <td>77</td>
+</tr>
+</table>
 
+<script>
+let arr = [];
+
+let td = document.querySelectorAll('td');
+for (let i = 0; i < td.length; i++) {
+    td[i].style.padding = '10px';
+}
+let targetTd = document.querySelectorAll('tr>td:nth-child(4)');
+for (let i = 0; i < targetTd.length; i++) {
+    arr.push(+targetTd[i].textContent);
+}
+let tr = document.querySelectorAll('tr');
+tr = Array.from(tr);
+tr.sort(function (a, b) {
+    return +a.children[3].textContent - +b.children[3].textContent;
+});
+let table = document.getElementsByTagName('table')[0];
+
+for (let i = 0; i < tr.length; i++) {
+    table.appendChild(tr[i]);
+}
+</script>        */
 
 
 
