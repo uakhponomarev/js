@@ -143,8 +143,8 @@ user.export();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Vic\Desktop\baseBuildJS-master\src\js\index.js */"./src/js/index.js");
-module.exports = __webpack_require__(/*! C:\Users\Vic\Desktop\baseBuildJS-master\src\js\functions\testFunc.js */"./src/js/functions/testFunc.js");
+__webpack_require__(/*! E:\GitHub\baseBuildJS-master\src\js\index.js */"./src/js/index.js");
+module.exports = __webpack_require__(/*! E:\GitHub\baseBuildJS-master\src\js\functions\testFunc.js */"./src/js/functions/testFunc.js");
 
 
 /***/ })
