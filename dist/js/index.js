@@ -115,24 +115,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var functions_testFunc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! functions/testFunc */ "./src/js/functions/testFunc.js");
 
 
-console.log('works');
-Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["testFunc"])();
 
-var name = "";
-
-var user = {
-    name: "Василий",
-
-    export: function () {
-        var ob = {
-            name: 'Me',
-            value: this
-        };
-        return ob;
-    }
-};
-
-user.export();
 
 /***/ }),
 
@@ -143,8 +126,8 @@ user.export();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Vic\Desktop\baseBuildJS-master\src\js\index.js */"./src/js/index.js");
-module.exports = __webpack_require__(/*! C:\Users\Vic\Desktop\baseBuildJS-master\src\js\functions\testFunc.js */"./src/js/functions/testFunc.js");
+__webpack_require__(/*! E:\GitHub\baseBuildJS-master\src\js\index.js */"./src/js/index.js");
+module.exports = __webpack_require__(/*! E:\GitHub\baseBuildJS-master\src\js\functions\testFunc.js */"./src/js/functions/testFunc.js");
 
 
 /***/ })
