@@ -1960,8 +1960,8 @@
 //         container.prepend(div4);
 //         console.log(dv1.replaceWith(dv4));
 //         document.getElementsByTagName('ul')[0].insertAdjacentHTML('beforeEnd', '<li>3</li><li>4</li><li>5</li>');
-/* <table>
-<tr>
+// <table>
+{/* <tr>
     <th>Name</th>
     <th>LastName</th>
     <th>PastName</th>
@@ -2010,8 +2010,6 @@
     <td>77</td>
 </tr>
 </table>
-
-<script>
 let arr = [];
 
 let td = document.querySelectorAll('td');
@@ -2032,5 +2030,137 @@ let table = document.getElementsByTagName('table')[0];
 for (let i = 0; i < tr.length; i++) {
     table.appendChild(tr[i]);
 }
-</script>        */
 
+let arr = [];
+
+let tr = document.querySelectorAll('tr');
+tr = Array.from(tr);
+tr.sort(function (a, b) {
+    return +a.children[3].textContent - +b.children[3].textContent;
+});
+let table = document.getElementsByTagName('table')[0];
+
+for (let i = 0; i < tr.length; i++) {
+    table.appendChild(tr[i]);
+}
+var ll = getComputedStyle(dv1, ':before'); */}
+// console.log(ll.display);
+// dv1.display='block';
+// console.log(ll.fontSize);
+// console.log(document.body.clientWidth);
+// console.log(document.documentElement.clientWidth);
+// console.log(window.innerHeight);
+// console.log(window.innerWidth);
+// console.log(document.body.offsetWidth);
+// for (let i = 0; i < 10; i++) {
+//     let intt=Math.floor(Math.random()*279);
+//     console.log(intt);
+//     console.log(ll[intt]);
+
+// }
+// console.log(dv1.getBoundingClientRect());
+// let bc = sp.getBoundingClientRect();
+// console.log(bc);
+// bc.x = 122;
+// console.log(bc);
+// var centerX = document.documentElement.clientWidth / 2;
+// var centerY = document.documentElement.clientHeight / 2;
+
+// var elem = document.elementFromPoint(1, 1);
+
+// elem.style.background = "red";
+// alert(elem.tagName);
+// elem.style.background = "";
+// <span id="elem">Sweets</span>
+// function hideText() {
+
+//     var el = document.getElementsByTagName('ul')[0];
+//     el.classList.toggle('text');
+// };
+
+// elem.addEventListener("click", hideText);
+ // document.addEventListener('click', (e) => {
+        //     if(e.target.style.visibility!='hidden'){
+        //         e.target.style.visibility = 'hidden';
+        //     }
+        //     e.target.style.visibility = 'hidden';
+
+        //     console.log(e.target.style.visibility);
+
+        // });
+        // document.addEventListener('contextmenu', (e) => {
+        //     e.preventDefault();
+        //     let dvv = document.createElement('div');
+        //     dvv.style.width = '100px';
+        //     dvv.style.height = '100px';
+        //     dvv.style.backgroundColor = '#f00';
+        //     document.body.appendChild(dvv);
+        // });
+   // link.addEventListener('click', (e) => {
+        //     e.clientX=200;
+        //     e.clientY=200;
+
+        //     e.target.innerHTML++;
+        //     console.log(e);
+        //     return false;
+        // });
+        // let newEvent = new Event('click');
+        // for (let i = 0; i < 100; i++) {
+        //     setTimeout(() => link.dispatchEvent(newEvent), 1000 + i*100);
+        //     ;
+        // }
+        // let ev = Event;
+        // console.log(new ev('click',{isTrusted:true}));
+        // <input type="button" value="Нажми меня" id="elem">
+        // <input type="button" onclick='console.log(event);' value="Нажми меня2" id="elem2">
+        // <div id="field">
+        //     <img src="https://js.cx/clipart/ball.svg" id="ball">
+        // </div>
+        // <div id="pa">
+        //     <div id="p2">
+        //         <div id="p3"></div>
+        //         <div id="p32"></div>
+        //     </div>
+        // </div>
+        // <!-- <a href="https://google.com" onclick="return undefined">LINK</a> -->
+        // <style>
+        //     #pa,
+        //     #p2,
+        //     #p3,
+        //     #p32 {
+        //         border: 1px solid black;
+        //     }
+    
+        //     #pa {
+        //         width: 300px;
+        //         height: 300px;
+        //         background-color: #f00;
+        //     }
+    
+        //     #p2 {
+        //         width: 200px;
+        //         height: 200px;
+        //         background-color: #0f0;
+        //     }
+    
+        //     #p3,
+        //     #p32 {
+        //         width: 100px;
+        //         height: 100px;
+        //         background-color: #00f;
+        //     }
+    
+        //     #link {
+        //         float: right;
+        //         font-size: 50px;
+        //         padding: 30px;
+        //         margin-right: 150px;
+        //         margin-bottom: 150px;
+        //         border: 3px solid black;
+        //         color: #f00;
+        //     }
+        // </style>
+        // <b id="link">1</b>
+        // <script>
+         
+        // </script>
