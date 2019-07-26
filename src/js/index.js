@@ -2130,26 +2130,26 @@ var ll = getComputedStyle(dv1, ':before'); */}
         //     #p32 {
         //         border: 1px solid black;
         //     }
-    
+
         //     #pa {
         //         width: 300px;
         //         height: 300px;
         //         background-color: #f00;
         //     }
-    
+
         //     #p2 {
         //         width: 200px;
         //         height: 200px;
         //         background-color: #0f0;
         //     }
-    
+
         //     #p3,
         //     #p32 {
         //         width: 100px;
         //         height: 100px;
         //         background-color: #00f;
         //     }
-    
+
         //     #link {
         //         float: right;
         //         font-size: 50px;
@@ -2161,6 +2161,5 @@ var ll = getComputedStyle(dv1, ':before'); */}
         //     }
         // </style>
         // <b id="link">1</b>
-        // <script>
-         
+        // <script>s
         // </script>
