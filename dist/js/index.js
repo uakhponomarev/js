@@ -90,21 +90,10 @@
 /*!**************************************!*\
   !*** ./src/js/functions/testFunc.js ***!
   \**************************************/
-/*! exports provided: createElementWithClass */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementWithClass", function() { return createElementWithClass; });
-function createElementWithClass(elName, className, childName, childClass) {
-    let el = document.createElement(elName);
-    el.classList.add(className);
-    if (childName) {
-        el.appendChild(createElementWithClass(childName, childClass));
-    }
-    return el;
-}
-
+throw new Error("Module parse failed: Unexpected token (4:84)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n|     $(parentSelector).add(elName).addClass(className);\n|     if (childName) {\n>         createElementWithClass(parentSelector + ' ' + elName, childName, childClass));\n|     }\n|     ");
 
 /***/ }),
 
@@ -112,60 +101,10 @@ function createElementWithClass(elName, className, childName, childClass) {
 /*!*************************!*\
   !*** ./src/js/index.js ***!
   \*************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var functions_testFunc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! functions/testFunc */ "./src/js/functions/testFunc.js");
-
-
-
-const URL = 'https://my-json-server.typicode.com/ha100790tag/baseBuildJS/posts';
-var MENU;
-
-
-window.addEventListener('load', function () {
-    const isIndex = location.href.includes('index');
-    isIndex ? createNavbarOnIndexPage() : createPostPage();
-});
-
-const createNavbarOnIndexPage = function () {
-    MENU = MENU || document.getElementById('menu');
-    let textRequest = getArrayFromParamRequest(URL);
-    for (let i = 0; i < textRequest.length; i++) {
-        let li = Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('li', 'nav-item', 'a', 'nav-link');
-        let title = textRequest[i].title;
-        let a = li.children[0];
-        a.textContent = title;
-        // a.setAttribute('href', '../html/' + title.toLowerCase() + '.html');
-        // a.onclick = function () { return false };
-        MENU.appendChild(li);
-    }
-}
-const createPostPage = function () {
-    MENU = MENU || document.getElementById('menu');
-    MENU.addEventListener('click', function (e) {
-        document.location.href = "../html/" + e.target.textContent + ".html";
-    });
-}
-
-function getArrayFromParamRequest(targetUrl) {
-    let res, xhr = new XMLHttpRequest();
-    xhr.open('GET', targetUrl, false);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            res = JSON.parse(xhr.response);
-        };
-    };
-    xhr.send();
-    return res;
-}
-createPostPage();
-
-
-
-
+throw new Error("Module parse failed: Unexpected token (23:0)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n| \n| }\n> }\n| const createPostPage = function () {\n| ");
 
 /***/ }),
 

@@ -2,7 +2,7 @@ import { createElementWithClass } from 'functions/testFunc';
 
 
 const URL = 'https://my-json-server.typicode.com/ha100790tag/baseBuildJS/posts';
-var MENU;
+var MENU = '#menu';
 
 
 window.addEventListener('load', function () {
@@ -11,23 +11,19 @@ window.addEventListener('load', function () {
 });
 
 const createNavbarOnIndexPage = function () {
-    MENU = MENU || document.getElementById('menu');
-    let textRequest = getArrayFromParamRequest(URL);
-    for (let i = 0; i < textRequest.length; i++) {
-        let li = createElementWithClass('li', 'nav-item', 'a', 'nav-link');
-        let title = textRequest[i].title;
-        let a = li.children[0];
-        a.textContent = title;
-        // a.setAttribute('href', '../html/' + title.toLowerCase() + '.html');
-        // a.onclick = function () { return false };
-        MENU.appendChild(li);
-    }
+    createElementWithClass(MENU, 'nav-item', 'a', 'nav-link');
+    // let textRequest = getArrayFromParamRequest(URL);
+    // for (let i = 0; i < textRequest.length; i++) {
+    //     
+
+    // a.setAttribute('href', '../html/' + title.toLowerCase() + '.html');
+    // a.onclick = function () { return false };
+
+}
 }
 const createPostPage = function () {
-    MENU = MENU || document.getElementById('menu');
-    MENU.addEventListener('click', function (e) {
-        document.location.href = "../html/" + e.target.textContent + ".html";
-    });
+
+
 }
 
 function getArrayFromParamRequest(targetUrl) {
@@ -41,7 +37,7 @@ function getArrayFromParamRequest(targetUrl) {
     xhr.send();
     return res;
 }
-createPostPage();
+
 
 
 
