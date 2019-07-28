@@ -1,28 +1,8 @@
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 
   &:before,
   &:after {
     box-sizing: border-box;
   }
-}
-
-.navbar-brand img {
-  height: 70px;
-
-}
-
-.nav-item {
-  padding: 20px;
-}
-.nav-link{
-  cursor: pointer;
-}
-.nav-link:hover{
-  font-weight: 800;
-}
-h1 {
-  text-align: center;
 }
