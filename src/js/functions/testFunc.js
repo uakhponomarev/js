@@ -1,7 +1,8 @@
-export function createElementWithClass(parentSelector, elName, className, childName, childClass) {
-    $(parentSelector).add(elName).addClass(className);
+export function createElementWithClass(elName, className, childName, childClass) {
+    let el = document.createElement(elName);
+    el.classList.add(className);
     if (childName) {
-        createElementWithClass(parentSelector + ' ' + elName, childName, childClass));
+        el.appendChild(createElementWithClass(childName, childClass));
     }
-    
+    return el;
 }
