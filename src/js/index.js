@@ -2,7 +2,7 @@ import { createElementWithClass, activeHref } from 'functions/testFunc';
 
 
 const URL = 'https://my-json-server.typicode.com/ha100790tag/baseBuildJS/posts';
-var menuID = '#menu', textRequest;
+const MENU = '#menu', LINK = 'nav-link', LI = 'nav-item';
 
 window.addEventListener('load', function () {
     const isIndex = location.href.includes('index');
@@ -10,36 +10,40 @@ window.addEventListener('load', function () {
 });
 
 const createNavbarOnIndexPage = function () {
-    let menu = document.getElementById('menu');
-    textRequest = textRequest || getArrayFromParamRequest(URL);
-    for (let i = 0; i < textRequest.length; i++) {
-        let li = createElementWithClass('li', 'nav-item', 'a', 'nav-link');
-        let title = textRequest[i].title;
-        li.children[0].textContent = title;
-        menu.appendChild(li);
-    }
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let respText = JSON.parse(this.responseText);
+            for (let i = 0; i < respText.length; i++) {
+                $(MENU).append(createElementWithClass('li', LI, 'a', LINK));
+                let selectLink = MENU + ' .' + LI + ':nth-child(' + (i + 1) + ')' + '>a';
+                $(selectLink).text(respText[i].title);
+            }
+        }
+    };
+    xhttp.open("GET", URL, true);
+    xhttp.send();
     activeHref();
 }
+
 const createPostPage = function () {
-    textRequest = textRequest || getArrayFromParamRequest(URL);
-    document.body.appendChild(createElementWithClass('div', 'card', 'div', 'card-body'));
-    for (let i = 0; i < textRequest.length; i++) {
-        document.getElementsByClassName('card-body')[0].innerHTML = textRequest[i].text;
-    }
-}
-
-function getArrayFromParamRequest(targetUrl) {
-    let res, xhr = new XMLHttpRequest();
-
-    xhr.open('GET', targetUrl, false);
-    xhr.ondone
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            res = JSON.parse(xhr.responseText);
-        };
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function (e) {
+        if (this.readyState == 4 && this.status == 200) {
+            let respText = JSON.parse(this.responseText);
+            $('body').append(createElementWithClass('div', 'card', 'div', 'card-body'));
+            respText.forEach((el, i) => {
+                if (el.id == location.href[36]) {
+                    $('.card-body').text(el.text);
+                }
+            });
+        }
     };
-    xhr.send();
+    xhttp.open("GET", URL, true);
+    xhttp.send();
 
-    return res;
 }
+
+
+
 

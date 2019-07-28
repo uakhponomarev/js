@@ -1,13 +1,15 @@
 export function createElementWithClass(elName, className, childName, childClass) {
-    let el = document.createElement(elName);
-    el.classList.add(className);
+
     if (childName) {
-        el.appendChild(createElementWithClass(childName, childClass));
+        return createElementWithClass(elName, className).append(createElementWithClass(childName, childClass));
     }
-    return el;
+    function getTagString(tagNAme) {
+        return '<' + tagNAme + '></' + tagNAme + '>';
+    }
+    return $(getTagString(elName)).addClass(className);
 }
 export function activeHref() {
-    document.getElementById('menu').addEventListener('click', function (e) {
-       location.href = "../html/" + e.target.textContent + ".html";
+    $('#menu').click(function (event) {
+        location.href = "../html/" + event.target.textContent + ".html";
     });
 };

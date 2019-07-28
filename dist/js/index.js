@@ -98,16 +98,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementWithClass", function() { return createElementWithClass; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "activeHref", function() { return activeHref; });
 function createElementWithClass(elName, className, childName, childClass) {
-    let el = document.createElement(elName);
-    el.classList.add(className);
+
     if (childName) {
-        el.appendChild(createElementWithClass(childName, childClass));
+        return createElementWithClass(elName, className).append(createElementWithClass(childName, childClass));
     }
-    return el;
+    function getTagString(tagNAme) {
+        return '<' + tagNAme + '></' + tagNAme + '>';
+    }
+    return $(getTagString(elName)).addClass(className);
 }
 function activeHref() {
-    document.getElementById('menu').addEventListener('click', function (e) {
-       location.href = "../html/" + e.target.textContent + ".html";
+    $('#menu').click(function (event) {
+        location.href = "../html/" + event.target.textContent + ".html";
     });
 };
 
@@ -127,7 +129,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const URL = 'https://my-json-server.typicode.com/ha100790tag/baseBuildJS/posts';
-var menuID = '#menu', textRequest;
+const MENU = '#menu', LINK = 'nav-link', LI = 'nav-item';
 
 window.addEventListener('load', function () {
     const isIndex = location.href.includes('index');
@@ -135,38 +137,42 @@ window.addEventListener('load', function () {
 });
 
 const createNavbarOnIndexPage = function () {
-    let menu = document.getElementById('menu');
-    textRequest = textRequest || getArrayFromParamRequest(URL);
-    for (let i = 0; i < textRequest.length; i++) {
-        let li = Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('li', 'nav-item', 'a', 'nav-link');
-        let title = textRequest[i].title;
-        li.children[0].textContent = title;
-        menu.appendChild(li);
-    }
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let respText = JSON.parse(this.responseText);
+            for (let i = 0; i < respText.length; i++) {
+                $(MENU).append(Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('li', LI, 'a', LINK));
+                let selectLink = MENU + ' .' + LI + ':nth-child(' + (i + 1) + ')' + '>a';
+                $(selectLink).text(respText[i].title);
+            }
+        }
+    };
+    xhttp.open("GET", URL, true);
+    xhttp.send();
     Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["activeHref"])();
 }
+
 const createPostPage = function () {
-    textRequest = textRequest || getArrayFromParamRequest(URL);
-    document.body.appendChild(Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('div', 'card', 'div', 'card-body'));
-    for (let i = 0; i < textRequest.length; i++) {
-        document.getElementsByClassName('card-body')[0].innerHTML = textRequest[i].text;
-    }
-}
-
-function getArrayFromParamRequest(targetUrl) {
-    let res, xhr = new XMLHttpRequest();
-
-    xhr.open('GET', targetUrl, false);
-    xhr.ondone
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            res = JSON.parse(xhr.responseText);
-        };
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function (e) {
+        if (this.readyState == 4 && this.status == 200) {
+            let respText = JSON.parse(this.responseText);
+            $('body').append(Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('div', 'card', 'div', 'card-body'));
+            respText.forEach((el, i) => {
+                if (el.id == location.href[36]) {
+                    $('.card-body').text(el.text);
+                }
+            });
+        }
     };
-    xhr.send();
+    xhttp.open("GET", URL, true);
+    xhttp.send();
 
-    return res;
 }
+
+
+
 
 
 
