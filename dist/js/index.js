@@ -90,16 +90,20 @@
 /*!**************************************!*\
   !*** ./src/js/functions/testFunc.js ***!
   \**************************************/
-/*! exports provided: testFunc */
+/*! exports provided: createElementWithClass */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "testFunc", function() { return testFunc; });
-function testFunc() {
-    console.log('testFunc');
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementWithClass", function() { return createElementWithClass; });
+function createElementWithClass(elName, className, childName, childClass) {
+    let el = document.createElement(elName);
+    el.classList.add(className);
+    if (childName) {
+        el.appendChild(createElementWithClass(childName, childClass));
+    }
+    return el;
 }
-
 
 /***/ }),
 
@@ -115,24 +119,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var functions_testFunc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! functions/testFunc */ "./src/js/functions/testFunc.js");
 
 
-console.log('works');
-Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["testFunc"])();
 
-var name = "";
 
-var user = {
-    name: "Василий",
+const URL = 'https://my-json-server.typicode.com/ha100790tag/baseBuildJS/posts';
+var MENU;
 
-    export: function () {
-        var ob = {
-            name: 'Me',
-            value: this
-        };
-        return ob;
+
+window.addEventListener('load', function () {
+    const isIndex = location.href.includes('index');
+    isIndex ? createNavbarOnIndexPage() : createPostPage();
+});
+
+const createNavbarOnIndexPage = function () {
+    MENU = MENU || document.getElementById('menu');
+    let textRequest = getArrayFromParamRequest(URL);
+    for (let i = 0; i < textRequest.length; i++) {
+        let li = Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('li', 'nav-item', 'a', 'nav-link');
+        let title = textRequest[i].title;
+        let a = li.children[0];
+        a.textContent = title;
+        // a.setAttribute('href', '../html/' + title.toLowerCase() + '.html');
+        // a.onclick = function () { return false };
+        MENU.appendChild(li);
     }
-};
+}
+const createPostPage = function () {
+    MENU = MENU || document.getElementById('menu');
+    MENU.addEventListener('click', function (e) {
+        document.location.href = "../html/" + e.target.textContent + ".html";
+    });
+}
 
-user.export();
+function getArrayFromParamRequest(targetUrl) {
+    let res, xhr = new XMLHttpRequest();
+    xhr.open('GET', targetUrl, false);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            res = JSON.parse(xhr.response);
+        };
+    };
+    xhr.send();
+    return res;
+}
+
+
 
 /***/ }),
 
@@ -143,8 +173,8 @@ user.export();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\testBuild\src\js\index.js */"./src/js/index.js");
-module.exports = __webpack_require__(/*! C:\testBuild\src\js\functions\testFunc.js */"./src/js/functions/testFunc.js");
+__webpack_require__(/*! E:\GitHub\baseBuildJS-master\src\js\index.js */"./src/js/index.js");
+module.exports = __webpack_require__(/*! E:\GitHub\baseBuildJS-master\src\js\functions\testFunc.js */"./src/js/functions/testFunc.js");
 
 
 /***/ })
