@@ -8,6 +8,6 @@ export function createElementWithClass(elName, className, childName, childClass)
 }
 export function activeHref() {
     document.getElementById('menu').addEventListener('click', function (e) {
-        document.location.href = "../html/" + e.target.textContent + ".html";
+       location.href = "../html/" + e.target.textContent + ".html";
     });
 };

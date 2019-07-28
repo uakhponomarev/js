@@ -107,7 +107,7 @@ function createElementWithClass(elName, className, childName, childClass) {
 }
 function activeHref() {
     document.getElementById('menu').addEventListener('click', function (e) {
-        document.location.href = "../html/" + e.target.textContent + ".html";
+       location.href = "../html/" + e.target.textContent + ".html";
     });
 };
 
@@ -128,7 +128,6 @@ __webpack_require__.r(__webpack_exports__);
 
 const URL = 'https://my-json-server.typicode.com/ha100790tag/baseBuildJS/posts';
 var menuID = '#menu', textRequest;
-
 
 window.addEventListener('load', function () {
     const isIndex = location.href.includes('index');
@@ -156,13 +155,16 @@ const createPostPage = function () {
 
 function getArrayFromParamRequest(targetUrl) {
     let res, xhr = new XMLHttpRequest();
+
     xhr.open('GET', targetUrl, false);
+    xhr.ondone
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            res = JSON.parse(xhr.response);
+            res = JSON.parse(xhr.responseText);
         };
     };
     xhr.send();
+
     return res;
 }
 
