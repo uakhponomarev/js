@@ -1,9 +1,8 @@
 import { createElementWithClass } from 'functions/testFunc';
-
-
+import { activeHref } from 'functions/testFunc';
 
 const URL = 'https://my-json-server.typicode.com/ha100790tag/baseBuildJS/posts';
-var MENU;
+var menuID = '#menu', textRequest;
 
 
 window.addEventListener('load', function () {
@@ -12,23 +11,22 @@ window.addEventListener('load', function () {
 });
 
 const createNavbarOnIndexPage = function () {
-    MENU = MENU || document.getElementById('menu');
-    let textRequest = getArrayFromParamRequest(URL);
+    let menu = document.getElementById('menu');
+    textRequest = textRequest || getArrayFromParamRequest(URL);
     for (let i = 0; i < textRequest.length; i++) {
         let li = createElementWithClass('li', 'nav-item', 'a', 'nav-link');
         let title = textRequest[i].title;
-        let a = li.children[0];
-        a.textContent = title;
-        // a.setAttribute('href', '../html/' + title.toLowerCase() + '.html');
-        // a.onclick = function () { return false };
-        MENU.appendChild(li);
+        li.children[0].textContent = title;
+        menu.appendChild(li);
     }
+    activeHref();
 }
 const createPostPage = function () {
-    MENU = MENU || document.getElementById('menu');
-    MENU.addEventListener('click', function (e) {
-        document.location.href = "../html/" + e.target.textContent + ".html";
-    });
+    textRequest = textRequest || getArrayFromParamRequest(URL);
+    document.body.appendChild(createElementWithClass('div', 'card', 'div', 'card-body'));
+    for (let i = 0; i < textRequest.length; i++) {
+        document.getElementsByClassName('card-body')[0].innerHTML = textRequest[i].text;
+    }
 }
 
 function getArrayFromParamRequest(targetUrl) {

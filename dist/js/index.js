@@ -90,12 +90,13 @@
 /*!**************************************!*\
   !*** ./src/js/functions/testFunc.js ***!
   \**************************************/
-/*! exports provided: createElementWithClass */
+/*! exports provided: createElementWithClass, activeHref */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementWithClass", function() { return createElementWithClass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "activeHref", function() { return activeHref; });
 function createElementWithClass(elName, className, childName, childClass) {
     let el = document.createElement(elName);
     el.classList.add(className);
@@ -104,6 +105,11 @@ function createElementWithClass(elName, className, childName, childClass) {
     }
     return el;
 }
+function activeHref() {
+    document.getElementById('menu').addEventListener('click', function (e) {
+        document.location.href = "../html/" + e.target.textContent + ".html";
+    });
+};
 
 /***/ }),
 
@@ -120,9 +126,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 const URL = 'https://my-json-server.typicode.com/ha100790tag/baseBuildJS/posts';
-var MENU;
+var menuID = '#menu', textRequest;
 
 
 window.addEventListener('load', function () {
@@ -131,23 +136,22 @@ window.addEventListener('load', function () {
 });
 
 const createNavbarOnIndexPage = function () {
-    MENU = MENU || document.getElementById('menu');
-    let textRequest = getArrayFromParamRequest(URL);
+    let menu = document.getElementById('menu');
+    textRequest = textRequest || getArrayFromParamRequest(URL);
     for (let i = 0; i < textRequest.length; i++) {
         let li = Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('li', 'nav-item', 'a', 'nav-link');
         let title = textRequest[i].title;
-        let a = li.children[0];
-        a.textContent = title;
-        // a.setAttribute('href', '../html/' + title.toLowerCase() + '.html');
-        // a.onclick = function () { return false };
-        MENU.appendChild(li);
+        li.children[0].textContent = title;
+        menu.appendChild(li);
     }
+    Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["activeHref"])();
 }
 const createPostPage = function () {
-    MENU = MENU || document.getElementById('menu');
-    MENU.addEventListener('click', function (e) {
-        document.location.href = "../html/" + e.target.textContent + ".html";
-    });
+    textRequest = textRequest || getArrayFromParamRequest(URL);
+    document.body.appendChild(Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('div', 'card', 'div', 'card-body'));
+    for (let i = 0; i < textRequest.length; i++) {
+        document.getElementsByClassName('card-body')[0].innerHTML = textRequest[i].text;
+    }
 }
 
 function getArrayFromParamRequest(targetUrl) {
