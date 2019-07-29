@@ -2079,87 +2079,155 @@ var ll = getComputedStyle(dv1, ':before'); */}
 // };
 
 // elem.addEventListener("click", hideText);
- // document.addEventListener('click', (e) => {
-        //     if(e.target.style.visibility!='hidden'){
-        //         e.target.style.visibility = 'hidden';
-        //     }
-        //     e.target.style.visibility = 'hidden';
+// document.addEventListener('click', (e) => {
+//     if(e.target.style.visibility!='hidden'){
+//         e.target.style.visibility = 'hidden';
+//     }
+//     e.target.style.visibility = 'hidden';
 
-        //     console.log(e.target.style.visibility);
+//     console.log(e.target.style.visibility);
 
-        // });
-        // document.addEventListener('contextmenu', (e) => {
-        //     e.preventDefault();
-        //     let dvv = document.createElement('div');
-        //     dvv.style.width = '100px';
-        //     dvv.style.height = '100px';
-        //     dvv.style.backgroundColor = '#f00';
-        //     document.body.appendChild(dvv);
-        // });
-   // link.addEventListener('click', (e) => {
-        //     e.clientX=200;
-        //     e.clientY=200;
+// });
+// document.addEventListener('contextmenu', (e) => {
+//     e.preventDefault();
+//     let dvv = document.createElement('div');
+//     dvv.style.width = '100px';
+//     dvv.style.height = '100px';
+//     dvv.style.backgroundColor = '#f00';
+//     document.body.appendChild(dvv);
+// });
+// link.addEventListener('click', (e) => {
+//     e.clientX=200;
+//     e.clientY=200;
 
-        //     e.target.innerHTML++;
-        //     console.log(e);
-        //     return false;
-        // });
-        // let newEvent = new Event('click');
-        // for (let i = 0; i < 100; i++) {
-        //     setTimeout(() => link.dispatchEvent(newEvent), 1000 + i*100);
-        //     ;
-        // }
-        // let ev = Event;
-        // console.log(new ev('click',{isTrusted:true}));
-        // <input type="button" value="Нажми меня" id="elem">
-        // <input type="button" onclick='console.log(event);' value="Нажми меня2" id="elem2">
-        // <div id="field">
-        //     <img src="https://js.cx/clipart/ball.svg" id="ball">
-        // </div>
-        // <div id="pa">
-        //     <div id="p2">
-        //         <div id="p3"></div>
-        //         <div id="p32"></div>
-        //     </div>
-        // </div>
-        // <!-- <a href="https://google.com" onclick="return undefined">LINK</a> -->
-        // <style>
-        //     #pa,
-        //     #p2,
-        //     #p3,
-        //     #p32 {
-        //         border: 1px solid black;
-        //     }
+//     e.target.innerHTML++;
+//     console.log(e);
+//     return false;
+// });
+// let newEvent = new Event('click');
+// for (let i = 0; i < 100; i++) {
+//     setTimeout(() => link.dispatchEvent(newEvent), 1000 + i*100);
+//     ;
+// }
+// let ev = Event;
+// console.log(new ev('click',{isTrusted:true}));
+// <input type="button" value="Нажми меня" id="elem">
+// <input type="button" onclick='console.log(event);' value="Нажми меня2" id="elem2">
+// <div id="field">
+//     <img src="https://js.cx/clipart/ball.svg" id="ball">
+// </div>
+// <div id="pa">
+//     <div id="p2">
+//         <div id="p3"></div>
+//         <div id="p32"></div>
+//     </div>
+// </div>
+// <!-- <a href="https://google.com" onclick="return undefined">LINK</a> -->
+// <style>
+//     #pa,
+//     #p2,
+//     #p3,
+//     #p32 {
+//         border: 1px solid black;
+//     }
 
-        //     #pa {
-        //         width: 300px;
-        //         height: 300px;
-        //         background-color: #f00;
-        //     }
+//     #pa {
+//         width: 300px;
+//         height: 300px;
+//         background-color: #f00;
+//     }
 
-        //     #p2 {
-        //         width: 200px;
-        //         height: 200px;
-        //         background-color: #0f0;
-        //     }
+//     #p2 {
+//         width: 200px;
+//         height: 200px;
+//         background-color: #0f0;
+//     }
 
-        //     #p3,
-        //     #p32 {
-        //         width: 100px;
-        //         height: 100px;
-        //         background-color: #00f;
-        //     }
+//     #p3,
+//     #p32 {
+//         width: 100px;
+//         height: 100px;
+//         background-color: #00f;
+//     }
 
-        //     #link {
-        //         float: right;
-        //         font-size: 50px;
-        //         padding: 30px;
-        //         margin-right: 150px;
-        //         margin-bottom: 150px;
-        //         border: 3px solid black;
-        //         color: #f00;
-        //     }
-        // </style>
-        // <b id="link">1</b>
-        // <script>s
-        // </script>
+//     #link {
+//         float: right;
+//         font-size: 50px;
+//         padding: 30px;
+//         margin-right: 150px;
+//         margin-bottom: 150px;
+//         border: 3px solid black;
+//         color: #f00;
+//     }
+// </style>
+// <b id="link">1</b>
+// <script>s
+// </script>
+// var user = {
+//     name: "Вася",
+//     hi: function() { console.log(this); },
+//     bye: function() { console.log("Пока"); }
+//   };
+
+//   user.hi(); // Вася (простой вызов работает)
+
+//   // а теперь вызовем user.hi или user.bye в зависимости от имени
+//   console.log(user.name == "Вася");
+//   (user.name == "Вася" ? user.hi : user.bye)(); // undefined
+// var arr = ["a", "b"];
+
+// arr.push(function () {
+//     console.log(this);
+// })
+
+// arr[2](); // ?
+// var obj = {
+//     name:'VVV',
+//     go: function() { alert(this.name) }
+//   };
+
+//   (obj.go)(); //undefined, context is lost
+// var user = {
+//     firstName: "Василий",  
+//     export: this // (*)
+//   };  
+//   alert( user.export.firstName );
+//   alert( user );
+//   console.log( user );
+// var name = "FFF";
+// var user = {
+//   name: "Василий",
+//   export: function() {
+//     return window;
+//   }
+// };
+// alert( user.export().name );
+// console.log( user.export().name );
+// var name = "";
+// var user = {
+//   name: "Василий",
+//   export: function() {    
+//     let ob=new Object();
+//     ob.value=this  
+//     return ob;
+
+
+//   }
+// };
+// console.log( user.export().value );//
+// console.log( user.export().value.name );//
+// function formatDate(date) {
+//     if (typeof date == 'number') {
+//         date = new Date(date * 1000);
+//     } else if (typeof date == 'string') {
+//         date = new Date(date);
+//     } else if (Array.isArray(date)) {
+//         date = new Date(date[0], date[1], date[2]);
+//     }
+//     return date.toLocaleString("ru", { day: '2-digit', month: '2-digit', year: '2-digit' });
+// }
+
+// console.log(formatDate('2011-10-02')); // 02.10.11
+// console.log(formatDate(1234567890)); // 14.02.09
+// console.log(formatDate([2014, 0, 1])); // 01.01.14
+// console.log(formatDate(new Date(2014, 0, 1))); // 01.01.14
