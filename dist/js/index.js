@@ -2343,7 +2343,112 @@ var ll = getComputedStyle(dv1, ':before'); */}
 // console.log(formatDate(1234567890)); // 14.02.09
 // console.log(formatDate([2014, 0, 1])); // 01.01.14
 // console.log(formatDate(new Date(2014, 0, 1))); // 01.01.14
+// var event = {
+//     title: "Конференция",
+//     date: "сегодня"
+//   };
 
+//   var str = JSON.stringify(event,'','      ');
+//   console.log( str ); // {"title":"Конференция","date":"сегодня"}
+
+//   // Обратное преобразование.
+//   event = JSON.parse(str);
+// let c= setTimeout("document.body.innerHTML=''",1000);
+// let c2= setTimeout("document.body.innerHTML='fdfsf'",2000);
+// clearTimeout(1);
+// let c= setInterval("document.body.innerHTML=''",1000);
+// let c2= setInterval("document.body.innerHTML='<b>DDDD</b>'",2000);
+// console.log(c,c2);
+// clearInterval(1)
+// clearInterval(2)
+// let set1 = setTimeout(function sF() {
+//     console.log('F1');
+//     set1=setTimeout(sF,5000);
+// },2000);
+
+// let f = setTimeout(function tmr() {
+//     console.log('Call 1');
+//     f = setTimeout(tmr,2000);
+//     // location.reload();
+//     console.log('Call 2');
+// },1000);
+// setTimeout(()=>clearTimeout(f),10000);
+// let i = 1;
+// let tm = setInterval(() => console.log(i++), 100);
+// setTimeout(() => clearInterval(tm), 2000);
+// let i = 1;
+// let tm = setTimeout(function fn() {
+//     console.log(i++);
+//     tm=setTimeout(fn,100);
+// }, 100);
+// setTimeout(() => clearTimeout(tm), 2000);
+// setTimeout(function() {
+//     console.log( i );
+//   }, 100);
+
+
+//   var i,ar=[];
+
+//   function hardWork() {
+//     // время выполнения этого кода >100 мс, сам код неважен
+//     for (i = 0; i < 3000000; i++) {
+//         hardWork[i % 2] = i;
+//         ar.push(new Object(i));
+
+//     }
+//     console.log(i+'FOR');
+//   }  
+//   hardWork();
+// try{
+//     console.log('FFF');
+//     return name();
+// }catch(e){
+//     console.log(e.stack);
+
+// }finally{
+//     console.log('FINALLY');
+//     // return;
+// }
+// function name() {
+//     console.log('FUNCTION');
+// }
+// window.onerror = function(message, url, lineNumber) {
+//     console.log( message,  url , lineNumber );
+//   };
+//   function readData() {
+//     error(); // ой, что-то не так
+//   }
+//   readData();
+// function CoffeeMachine(power) {
+//     var self = this;
+//     self.waterAmount = 0;
+//     let stopRun;
+//     var WATER_HEAT_CAPACITY = 4200;
+
+
+
+//     function getBoilTime() {
+//         return self.waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+//     }
+
+//     function onReady() {
+//         alert('Кофе готово!');
+//     }
+
+//     this.run = function () {
+//         stopRun = setTimeout(onReady, getBoilTime());
+//     };
+
+//     this.stop = function () {
+//         clearTimeout(stopRun);
+//     };
+
+// }
+// var coffeeMachine = new CoffeeMachine(50000);
+// coffeeMachine.waterAmount = 200;
+
+// coffeeMachine.run();
+// coffeeMachine.stop(); // кофе приготовлен не будет
 
 /***/ }),
 
