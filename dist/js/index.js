@@ -137,27 +137,28 @@ window.addEventListener('load', function () {
 });
 
 const createNavbarOnIndexPage = function () {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let respText = JSON.parse(this.responseText);
-            for (let i = 0; i < respText.length; i++) {
-                $(MENU).append(Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('li', LI, 'a', LINK));
-                let selectLink = MENU + ' .' + LI + ':nth-child(' + (i + 1) + ')' + '>a';
-                $(selectLink).text(respText[i].title);
-            }
+
+    $.ajax({
+        url: URL,
+        cache: false,
+        success: function (respText) {
+            $('body').append(Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('div', 'card', 'div', 'card-body'));
+            respText.forEach((el, i) => {
+                let li = Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('li', LI, 'a', LINK);
+                li.children().text(respText[i].title);
+                $(MENU).append(li);
+            });
         }
-    };
-    xhttp.open("GET", URL, true);
-    xhttp.send();
+    });
     Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["activeHref"])();
-}
+};
+
 
 const createPostPage = function () {
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function (e) {
-        if (this.readyState == 4 && this.status == 200) {
-            let respText = JSON.parse(this.responseText);
+    $.ajax({
+        url: URL,
+        cache: false,
+        success: function (respText) {
             $('body').append(Object(functions_testFunc__WEBPACK_IMPORTED_MODULE_0__["createElementWithClass"])('div', 'card', 'div', 'card-body'));
             respText.forEach((el, i) => {
                 if (el.id == location.href[36]) {
@@ -165,11 +166,10 @@ const createPostPage = function () {
                 }
             });
         }
-    };
-    xhttp.open("GET", URL, true);
-    xhttp.send();
+    });
+};
 
-}
+
 
 
 
