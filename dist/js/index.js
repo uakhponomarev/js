@@ -2424,31 +2424,209 @@ var ll = getComputedStyle(dv1, ':before'); */}
 //     self.waterAmount = 0;
 //     let stopRun;
 //     var WATER_HEAT_CAPACITY = 4200;
-
-
-
 //     function getBoilTime() {
 //         return self.waterAmount * WATER_HEAT_CAPACITY * 80 / power;
 //     }
-
 //     function onReady() {
 //         alert('Кофе готово!');
 //     }
-
 //     this.run = function () {
 //         stopRun = setTimeout(onReady, getBoilTime());
 //     };
-
 //     this.stop = function () {
 //         clearTimeout(stopRun);
 //     };
-
 // }
 // var coffeeMachine = new CoffeeMachine(50000);
 // coffeeMachine.waterAmount = 200;
-
 // coffeeMachine.run();
 // coffeeMachine.stop(); // кофе приготовлен не будет
+// function CoffeeMachine(power, capacity) {
+//     var waterAmount = 0;
+
+//     this.waterAmount = function(amount) {
+
+//       if (!amount) {          
+//           return waterAmount; 
+//       } 
+//       // иначе режим сеттера
+//       if (amount < 0) {
+//         throw new Error("Значение должно быть положительным");
+//       }
+//       if (amount > capacity) {
+//         throw new Error("Нельзя залить воды больше, чем " + capacity);
+//       }
+
+//       waterAmount = amount;
+//     };
+
+//   }
+
+//   var coffeeMachine = new CoffeeMachine(1000, 500);
+
+//   // пример использования
+//   coffeeMachine.waterAmount(450);
+//   console.log( coffeeMachine.waterAmount() ); // 450
+// function User() {
+//     let firstName;
+//     let surName;
+//     this.getFirstName = function () {
+//         return firstName;
+//     }
+//     this.setFirstName = function (val) {
+//         firstName = val;
+//     }
+//     this.getSurName = function () {
+//         return surName;
+//     }
+//     this.setSurname = function (val) {
+//         surName = val;
+//     }
+//     this.getFullName = function () {
+//         return firstName + ' ' + surName;
+//     }
+
+// }
+
+// var user = new User();
+// user.setFirstName("Петя");
+// user.setSurname("Иванов");
+// console.log(user.getFirstName());
+// console.log(user.getSurName());
+
+
+// alert(user.getFullName()); // Петя Иванов
+// function CoffeeMachine(power, capacity) {
+//     this.getPower = function () {
+//         return power;
+//     }
+//     this.setWaterAmount = function (amount) {
+//         if (amount < 0) {
+//             throw new Error("Значение должно быть положительным");
+//         }
+//         if (amount > capacity) {
+//             throw new Error("Нельзя залить воды больше, чем " + capacity);
+//         }
+
+//         waterAmount = amount;
+//     };
+
+//     this.getWaterAmount = function () {
+//         return waterAmount;
+//     };
+
+// }
+// let cm = new CoffeeMachine(22, 444);
+// console.log(cm.getPower());
+// window.onerror = function () {
+//     console.log('SOme error');
+//     location.reload();
+// }
+// setTimeout(() =>{throw new Error}, 3000);
+// function Elec() {
+//     var me = this;
+//     me.getElectric = function () {
+//         console.log('GO ELECTRIC : ' + this);
+//     };
+// }
+// function Machine() {
+//     var me = this;
+//     me.enabled = false;
+//     this.enable = function () {
+//         me.enabled = true;
+//         console.log('EN ' + me.enabled);
+
+//     };
+
+//     this.disable = function () {
+//         me.enabled = false;
+//         console.log('DIS ' + me.enabled);
+//     };
+// }
+// function CoffeeMachine(power) {
+//     Machine.call(this); // отнаследовать
+//     Elec.call(this); // отнаследовать
+//     var elc = this.getElectric;
+//     elc();
+//     var waterAmount = 0;
+
+//     this.setWaterAmount = function (amount) {
+//         waterAmount = amount;
+//     };
+
+// }
+
+// var coffeeMachine = new CoffeeMachine(10000);
+
+// coffeeMachine.enable();
+// coffeeMachine.setWaterAmount(100);
+// coffeeMachine.disable();
+// // coffeeMachine.getElectric();
+// // Elec.getElectric();
+// function Machine(power) {
+//     this._enabled = false;
+
+//     var self = this;
+
+//     this.enable = function () {
+//         // используем внешнюю переменную вместо this
+//         self._enabled = true;
+//     };
+
+//     this.disable = function () {
+//         self._enabled = false;
+//     };
+
+//     this.getState = function () {
+//         return self._enabled;
+//     }
+
+// }
+
+// function CoffeeMachine(power) {
+//     Machine.apply(this, arguments);
+//     var waterAmount = 0;
+//     var timeId;
+
+//     this.setWaterAmount = function (amount) {
+//         waterAmount = amount;
+//     };
+
+//     function onReady() {
+//         console.log('Кофе готово!');
+//     }
+
+//     this.run = function () {
+//         if (!this.getState()) {
+//             return;
+//         }
+//         timeId = setTimeout(onReady, 1000);
+//     };
+//     let parentDisable = this.disable;
+//     this.disable = function () {
+//         parentDisable();
+//         clearTimeout(timeId);
+//     }
+
+// }
+
+// var coffeeMachine = new CoffeeMachine(10000);
+// coffeeMachine.setWaterAmount(50);
+// coffeeMachine.enable();
+// var coffeeMachine = new CoffeeMachine(10000);
+// coffeeMachine.run(); // ошибка, кофеварка выключена!
+// var coffeeMachine = new CoffeeMachine(10000);
+// coffeeMachine.enable();
+// coffeeMachine.run(); // ...Кофе готов!
+// var coffeeMachine = new CoffeeMachine(10000);
+// coffeeMachine.enable();
+// coffeeMachine.run();
+// coffeeMachine.disable(); // остановит работу, ничего не выведет
+// var user = {
+//     firstName: "Василий",  
+//     export: this // (*)
+//   };  
+//   console.log( user.export );
 
 /***/ }),
 
