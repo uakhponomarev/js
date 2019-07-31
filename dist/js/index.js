@@ -514,7 +514,7 @@ function testFunc() {
 
 //   var arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
 
-//   alert( aclean(arr) );
+//   console.log( aclean(arr) );
 
 // function unique(array) {
 //     let newAr = [];
@@ -644,17 +644,17 @@ function testFunc() {
 // f1();
 
 // function f1() {
-//   alert( arguments.callee.caller ); // null, меня вызвали из глобального кода
+//   console.log( arguments.callee.caller ); // null, меня вызвали из глобального кода
 //   f2();
 // }
 
 // function f2() {
-//   alert( arguments.callee.caller ); // f1, функция, из которой меня вызвали
+//   console.log( arguments.callee.caller ); // f1, функция, из которой меня вызвали
 //   f3();
 // }
 
 // function f3() {
-//   alert( arguments.callee.caller ); // f2, функция, из которой меня вызвали
+//   console.log( arguments.callee.caller ); // f2, функция, из которой меня вызвали
 // }
 // function f(x) {
 //     console.log(arguments.length);
@@ -811,7 +811,7 @@ function testFunc() {
 //   }
 //   var a;
 
-//   alert( a );
+//   console.log( a );
 // function name(params) {
 //     let g = 1;
 //     return () => g++;
@@ -829,7 +829,7 @@ function testFunc() {
 // var phrase = 'Привет';
 
 // function say(name) {
-//   alert( name + ", " + phrase );
+//   console.log( name + ", " + phrase );
 // }
 // var value = 0;
 
@@ -847,18 +847,18 @@ function testFunc() {
 // console.log(value);
 // function test() {
 
-//     alert( window );
+//     console.log( window );
 
 //     var window = 5;
 
-//     alert( window );
+//     console.log( window );
 //   }
 
 //   test();
 // var a = 5;
 
 // (function() {
-//   alert(a)
+//   console.log(a)
 // })()
 // function makeCounter() {
 //     var currentCount = 1;
@@ -883,11 +883,11 @@ function testFunc() {
 // var counter = makeCounter();
 // var counter2 = makeCounter();
 
-// alert( counter() ); // 1
-// alert( counter() ); // 2
+// console.log( counter() ); // 1
+// console.log( counter() ); // 2
 
-// alert( counter2() ); // 3
-// alert( counter2() ); //4
+// console.log( counter2() ); // 3
+// console.log( counter2() ); //4
 // var a = 1;
 
 // function getFunc() {
@@ -1075,7 +1075,7 @@ function testFunc() {
 //     for (var i = 0; i < 10; i++)(function (i) {
 
 //         var shooter = function () {
-//             alert(i);
+//             console.log(i);
 //         };
 
 //         shooters.push(shooter);
@@ -1105,12 +1105,12 @@ function testFunc() {
 // var arr = ["a", "b"];
 
 // arr.push(function() {
-//   alert( this ===arr );
+//   console.log( this ===arr );
 // })
 
-// arr[2](); // alert(window)+=> this ===arr
+// arr[2](); // console.log(window)+=> this ===arr
 // var obj = {
-//   go: function() { alert(this) }
+//   go: function() { console.log(this) }
 // }
 
 // obj.go()
@@ -1119,7 +1119,7 @@ function testFunc() {
 // var obj, method;
 
 // obj = {
-//   go: function() { alert(this); }
+//   go: function() { console.log(this); }
 // };
 
 // obj.go();            // (1) object
@@ -1275,8 +1275,8 @@ function testFunc() {
 //   toString=()=>'NAME STATIC';
 // }
 // var ob = new NameIS(777);
-// alert(ob);
-// alert(NameIS.toString);
+// console.log(ob);
+// console.log(NameIS.toString);
 // function BigAnimal() {
 
 //   this.name = "Мышь";
@@ -1284,8 +1284,8 @@ function testFunc() {
 //   // <-- возвратим примитив
 // }
 
-// alert(new BigAnimal().name); // Мышь, получили this (а Годзилла пропал)
-// alert(new BigAnimal()); // Мышь, получили this (а Годзилла пропал)
+// console.log(new BigAnimal().name); // Мышь, получили this (а Годзилла пропал)
+// console.log(new BigAnimal()); // Мышь, получили this (а Годзилла пропал)
 
 // function squareDigits(num) {
 //   var arrNumber = num.toString().split(''), res = '', i;
@@ -1304,7 +1304,7 @@ function testFunc() {
 // var a = new A;
 // var b = new B;
 
-// alert(a == b); // true
+// console.log(a == b); // true
 // function Calculator() {
 
 //   this.read = function () {
@@ -1436,7 +1436,7 @@ function testFunc() {
 // delete descriptor.value; // ..нужно убрать value/writable
 // delete descriptor.writable;
 // descriptor.get = function() { // и поставить get
-//   alert( "Preved :)" );
+//   console.log( "Preved :)" );
 // };
 
 // // поставим новое свойство вместо старого
@@ -1524,7 +1524,7 @@ function testFunc() {
 // Article.count = 0;
 
 // Article.showCount = function() {
-//   alert( this.count ); // (1)
+//   console.log( this.count ); // (1)
 // }
 
 // // использование
@@ -1609,16 +1609,16 @@ function testFunc() {
 // console.log(applyAll(sum, 1, 2, 3)); // -> sum(1, 2, 3) = 6
 // console.log(applyAll(mul, 2, 3, 4)); // -> mul(2, 3, 4) = 24
 // function sayHi() {
-//   alert( this.name );
+//   console.log( this.name );
 // }
 // sayHi.test = 5;
-// alert( sayHi.test ); // 5
+// console.log( sayHi.test ); // 5
 
 // var bound = sayHi.bind({
 //   name: "Вася"
 // });
 
-// alert( bound.test ); // что выведет? почему?   undefined
+// console.log( bound.test ); // что выведет? почему?   undefined
 // "use strict";
 
 // function ask(question, answer, ok, fail) {
@@ -1632,11 +1632,11 @@ function testFunc() {
 //   password: '12345',
 
 //   loginOk: function () {
-//     alert(this.login + ' вошёл в сайт');
+//     console.log(this.login + ' вошёл в сайт');
 //   },
 
 //   loginFail: function () {   
-//     alert(this.login + ': ошибка входа');
+//     console.log(this.login + ': ошибка входа');
 //   },
 
 //   checkPassword: function () {
@@ -1693,7 +1693,7 @@ function testFunc() {
 
 //     // метод для вызова из ask
 //     loginDone: function (result) {
-//         alert(this.login + (result ? ' вошёл в сайт' : ' ошибка входа'));
+//         console.log(this.login + (result ? ' вошёл в сайт' : ' ошибка входа'));
 //     },
 
 //     checkPassword: function () {
@@ -1738,12 +1738,12 @@ function testFunc() {
 // fibonacci = timingDecorator(fibonacci, "fibo");
 
 // // неоднократные вызовы...
-// alert( fibonacci(10) ); // 55
-// alert( fibonacci(20) ); // 6765
+// console.log( fibonacci(10) ); // 55
+// console.log( fibonacci(20) ); // 6765
 // // ...
 
 // // в любой момент можно получить общее количество времени на вызовы
-// alert( timers.fibo + 'мс' );
+// console.log( timers.fibo + 'мс' );
 // var uniqueInOrder = function (iterable) {
 //     var resArr = [];
 //     for (var i = 0; i < iterable.length; i++) {
@@ -2181,7 +2181,7 @@ var ll = getComputedStyle(dv1, ':before'); */}
 // var elem = document.elementFromPoint(1, 1);
 
 // elem.style.background = "red";
-// alert(elem.tagName);
+// console.log(elem.tagName);
 // elem.style.background = "";
 // <span id="elem">Sweets</span>
 // function hideText() {
@@ -2295,7 +2295,7 @@ var ll = getComputedStyle(dv1, ':before'); */}
 // arr[2](); // ?
 // var obj = {
 //     name:'VVV',
-//     go: function() { alert(this.name) }
+//     go: function() { console.log(this.name) }
 //   };
 
 //   (obj.go)(); //undefined, context is lost
@@ -2303,8 +2303,8 @@ var ll = getComputedStyle(dv1, ':before'); */}
 //     firstName: "Василий",  
 //     export: this // (*)
 //   };  
-//   alert( user.export.firstName );
-//   alert( user );
+//   console.log( user.export.firstName );
+//   console.log( user );
 //   console.log( user );
 // var name = "FFF";
 // var user = {
@@ -2313,7 +2313,7 @@ var ll = getComputedStyle(dv1, ':before'); */}
 //     return window;
 //   }
 // };
-// alert( user.export().name );
+// console.log( user.export().name );
 // console.log( user.export().name );
 // var name = "";
 // var user = {
@@ -2428,7 +2428,7 @@ var ll = getComputedStyle(dv1, ':before'); */}
 //         return self.waterAmount * WATER_HEAT_CAPACITY * 80 / power;
 //     }
 //     function onReady() {
-//         alert('Кофе готово!');
+//         console.log('Кофе готово!');
 //     }
 //     this.run = function () {
 //         stopRun = setTimeout(onReady, getBoilTime());
@@ -2495,7 +2495,7 @@ var ll = getComputedStyle(dv1, ':before'); */}
 // console.log(user.getSurName());
 
 
-// alert(user.getFullName()); // Петя Иванов
+// console.log(user.getFullName()); // Петя Иванов
 // function CoffeeMachine(power, capacity) {
 //     this.getPower = function () {
 //         return power;
@@ -2627,6 +2627,27 @@ var ll = getComputedStyle(dv1, ':before'); */}
 //     export: this // (*)
 //   };  
 //   console.log( user.export );
+// function Ob() {
+//     this.a = 32;
+// }
+
+// function name(params) {
+//     this.b=44;    
+// }
+// let obj = new Ob;
+// console.log(obj.a);
+// let rt = new obj.constructor;
+// console.log(rt.a);
+// console.log(Ob.__proto__);
+// console.log(Ob.prototype);
+// Ob.prototype=new name();
+// console.log(Ob.prototype);
+function name(params) {
+    arguments.forEach = [].forEach;
+    arguments.reduce = [].reduce;
+    arguments.reduce((a,le,i)=>console.log(a,le,i),5);
+}
+name(1,2,4,4,3,5,null,'434234dfsdf');
 
 /***/ }),
 
