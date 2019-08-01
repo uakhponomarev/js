@@ -2530,9 +2530,46 @@ var ll = getComputedStyle(dv1, ':before'); */}
 // console.log(Ob.prototype);
 // Ob.prototype=new name();
 // console.log(Ob.prototype);
-function name(params) {
-    arguments.forEach = [].forEach;
-    arguments.reduce = [].reduce;
-    arguments.reduce((a,le,i)=>console.log(a,le,i),5);
-}
-name(1,2,4,4,3,5,null,'434234dfsdf');
+// function name(params) {
+
+//     [].reduce.call(arguments, (a, b) => console.log('THIS IS B : ' + b + " "));
+// }
+// name(1, 2, 4, 4, 3, 5, null, '434234dfsdf');
+// let map = new Map();
+// map.set(1, 'one');
+// map.set(2, 'two');
+// map.set(3, 'three');
+// map.length = map.size;
+// Function.prototype.defer = function (time) {
+//     let fn = this;
+//     return function () {
+//         setTimeout(() => fn.apply(null, arguments), time);
+//     }
+// }
+// Function.prototype.defer = function(ms) {
+//     var f = this;
+//     return function() {
+//       var args = arguments,
+//         context = this;
+//       setTimeout(function() {
+//         f.apply(context, args);
+//       }, ms);
+//     }
+//   }
+
+// проверка
+//   function f(a, b) {
+//     alert( a + b );
+//   }
+
+//   f.defer(10000)(1, 2); // выведет 3 через 1 секунду.
+// function f() {
+//     console.log("привет");
+// }
+
+// f.defer(1000); // выведет "привет" через 1 секунду
+// function f(a, b) {
+//     console.log(a + b);
+// }
+
+// f.defer(3000)(1, 2); // выведет 3 через 1 секунду.
